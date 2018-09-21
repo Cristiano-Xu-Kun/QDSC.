@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Register</title>
+<link rel="stylesheet" href="css/register.css" type="text/css" media="all">
+
+<script>
+ function check(){   
+   // alert (document.register.Email.value);
+    //alert (document.register.Preference.value);
+    if (document.register.Account.value ==''){
+        
+        alert("Error: Enter the Account!");
+        return false;
+    }
+   /* if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.register.Email.value)){
+        alert ("correct");
+    }
+    else
+       alert ("not correct");
+		} */
+	
+	if (document.register.Email.value ==''){
+        
+        alert("Error: Enter the Email!");
+        return false;
+    }
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.register.Email.value) == false){
+	    alert("Error:");
+	    return false;
+        
+    }
+    /*
+    else{
+        alert("You should have a valid e-mail address.");
+    return false;
+    }
+    */
+    if (document.register.Password.value ==''){
+        alert("Error: Enter the Password!");
+        return false;
+    }
+    
+    if (document.register.Password2.value ==''){
+        alert("Error: Enter the Password Again!");
+        return false;
+    }
+    
+    if (document.register.Password.value !== document.register.Password2.value){
+        alert("Error: Password is Inconsistent!");
+        return false;
+    }    
+    
+    if (document.register.Preference.value ==''){
+        alert("Error: Select Your Favorite Sport!");
+        return false;
+    }
+    
+}
+</script>
+
+</head>
+
+<body>
+<div id="box">    
+<form name="register" method="post" action="register.php" onSubmit="return check();" >
+<div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    
+    
+<label for="Account"><b>Account</b></label><br/>
+<input type="text" name="Account"><br/>
+
+<label for="Email"><b>Email</b></label><br/>
+<input type="email" name="Email"><br/>
+
+<label for="Password"><b>Password</b></label><br/>
+<input type="password" name="Password"><br/>
+
+<label for="Password2"><b>Confirm Password</b></label><br/>
+<input type="password" name="Password2"><br/>
+
+<label for="Preference"><b>What Types of International Sports News You Prefer?</b></label><br/>
+<input type="radio" name="Preference" value="Soccer">
+<label><b>Soccer</b></label><br/>
+<input type="radio" name="Preference" value="Basketball">
+<label><b>Basketball</b></label><br/>
+<input type="radio" name="Preference" value="Volleyball">
+<label><b>Volleyball</b></label><br/>
+
+<div class="clearfix">
+<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancel">Go Back</button>
+<button type="submit" class="register" name="sub">Register</button>
+</div>
+
+</div>
+</form>
+</div>
+</body>
+</html>
